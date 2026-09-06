@@ -1,12 +1,8 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Julienlgn123/plan-studio/main/resources/icon.png" width="96" height="96" alt="Plan Studio" />
+  <img src="https://raw.githubusercontent.com/Julienlgn123/plan-studio/main/banner.png" alt="Plan Studio" width="100%" />
 </p>
 
-<h1 align="center">Plan Studio</h1>
-
-<p align="center">
-  Planning personnel local : événements, tâches, objectifs et rappels au même endroit.
-</p>
+<p align="center">Planning personnel local : événements, tâches, objectifs et rappels au même endroit.</p>
 
 ## Fonctionnalités
 
