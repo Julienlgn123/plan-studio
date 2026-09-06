@@ -1,0 +1,114 @@
+{
+  "name": "plan-studio",
+  "version": "1.0.0",
+  "description": "Planning personnel local : événements, tâches, objectifs et rappels au même endroit.",
+  "author": {
+    "name": "Julienlgn123",
+    "email": "129546749+Julienlgn123@users.noreply.github.com"
+  },
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "start": "electron-vite dev",
+    "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json",
+    "postinstall": "electron-builder install-app-deps",
+    "dist": "electron-vite build && electron-builder --win",
+    "dist:mac": "electron-vite build && electron-builder --mac",
+    "dist:linux": "electron-vite build && electron-builder --linux"
+  },
+  "build": {
+    "appId": "com.plan-studio.app",
+    "productName": "Plan Studio",
+    "directories": {
+      "output": "dist-installer"
+    },
+    "files": [
+      "out/**/*",
+      "node_modules/**/*",
+      "!node_modules/.cache",
+      "!node_modules/**/*.map"
+    ],
+    "asar": true,
+    "asarUnpack": [
+      "node_modules/better-sqlite3/**/*"
+    ],
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ],
+      "icon": "resources/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Plan Studio",
+      "artifactName": "Plan-Studio-Setup-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "Plan-Studio-Portable-${version}.exe"
+    },
+    "mac": {
+      "target": [
+        { "target": "dmg", "arch": ["x64", "arm64"] },
+        { "target": "zip", "arch": ["x64", "arm64"] }
+      ],
+      "artifactName": "Plan-Studio-${version}-${arch}.${ext}",
+      "icon": "resources/icon.png",
+      "category": "public.app-category.productivity",
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false
+    },
+    "dmg": {
+      "title": "Plan Studio ${version}",
+      "artifactName": "Plan-Studio-${version}-${arch}.dmg"
+    },
+    "linux": {
+      "target": [
+        { "target": "AppImage", "arch": ["x64"] },
+        { "target": "deb", "arch": ["x64"] }
+      ],
+      "icon": "resources/icon.png",
+      "category": "Office"
+    },
+    "appImage": {
+      "artifactName": "Plan-Studio-${version}.AppImage"
+    },
+    "deb": {
+      "artifactName": "Plan-Studio-${version}.deb"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "Julienlgn123",
+      "repo": "plan-studio"
+    }
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.10.0",
+    "date-fns": "^4.1.0",
+    "electron-updater": "^6.8.9",
+    "framer-motion": "^12.23.6",
+    "lucide-react": "^0.511.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^5.0.5"
+  },
+  "devDependencies": {
+    "@electron-toolkit/preload": "^3.0.1",
+    "@electron-toolkit/utils": "^3.0.0",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^22.15.29",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.5.2",
+    "electron": "^35.3.0",
+    "electron-builder": "^26.15.3",
+    "electron-vite": "^3.1.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  }
+}
