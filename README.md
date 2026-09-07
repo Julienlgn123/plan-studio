@@ -21,6 +21,22 @@ base SQLite sur ton ordinateur.
 Plan Studio s'installe et se met à jour directement depuis [**Open Studio**](https://github.com/Julienlgn123/open-studio) :
 télécharge sa dernière release, puis choisis Plan Studio dans son catalogue.
 
+Tu peux aussi télécharger directement le `.dmg`/`.exe`/`.AppImage`/`.deb` de Plan
+Studio depuis ses [Releases](https://github.com/Julienlgn123/plan-studio/releases/latest).
+
+- **macOS uniquement** : Plan Studio n'a pas de certificat Apple Developer
+  payant, la build n'est donc signée qu'en *ad-hoc*. Au premier lancement,
+  macOS affiche **« Plan Studio est endommagée et ne peut pas être
+  ouverte »** (le clic droit → Ouvrir ne suffit pas ici, contrairement à
+  une app juste non-notariée). Pour débloquer :
+  1. glisse `Plan Studio.app` dans `/Applications` depuis le `.dmg` monté,
+  2. puis retire la quarantaine avec l'une de ces deux méthodes :
+     - double-clique `Fix-macOS-Signature.command` présent dans le `.dmg`, ou
+     - ouvre Terminal et lance :
+       ```bash
+       xattr -cr "/Applications/Plan Studio.app"
+       ```
+
 ---
 
 ## Développement
